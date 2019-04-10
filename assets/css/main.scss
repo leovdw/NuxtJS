@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+section {
+  padding: 5em;
+}
+
+h1 {
+  font-size: 3em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .image-desc {
+    padding-right: 20px;
+  }
+}
+
+.subheading {
+  font-size: 1.5em;
+  margin-bottom: 2em;
+  text-transform: uppercase;
+  color: rgb(179, 179, 179);
+  font-weight: 300;
+}
+
+p {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+
+
+/* .page-enter-active, .page-leave-active {
+  transition: opacity .5s
+}
+.page-enter, .page-leave-active {
+  opacity: 0
+} */
+
+.page-enter-active {
+  animation: bounce-in .8s;
+}
+.page-leave-active {
+  animation: bounce-out .5s;
+}
+@keyframes bounce-in {
+  0% { transform: scale(.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes bounce-out {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(.9); opacity: 0; }
+}
+
+
+// .page-enter-active {
+//  animation: acrossIn .40s ease-out both;
+// }
+// .page-leave-active {
+//  animation: acrossOut .60s ease-in both;
+// }
+// @keyframes acrossIn {
+//   0% {
+//     transform: translate3d(100%, 0, 0);
+//   }
+//   100% {
+//     transform: translate3d(0, 0, 0);
+//   }
+// }
+// @keyframes acrossOut {
+//   0% {
+//     transform: translate3d(0, 0, 0);
+//   }
+//   100% {
+//     transform: translate3d(-100%, 0, 0);
+//   }
+// }
