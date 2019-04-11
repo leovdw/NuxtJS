@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import gf from '~/lib/gf'
-
-gf.forms();
+// import gf from '~/lib/gf'
+//
+// gf.forms();
 export default {
   // async asyncData ({ params }) {
   //   return gf.froms()

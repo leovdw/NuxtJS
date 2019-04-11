@@ -1,17 +1,13 @@
 <template>
-  <header>
-      <div v-if="loader" class="loader">
-        <img src="/load_2.gif" alt="">
-      </div>
-    <nuxt-link to="/" class="logo">Nuxty</nuxt-link>
+  <footer>
     <nav>
       <ul>
-        <li v-for="items in menus.menu.header" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
+        <li v-for="items in menus.menu.footer" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
           <nuxt-link :to="slugify(items.title)">{{ items.title }}</nuxt-link>
         </li>
       </ul>
     </nav>
-  </header>
+  </footer>
 </template>
 
 <script>
@@ -45,19 +41,11 @@ export default {
     menus(){
       return this.$store.state.nav;
     },
-  },
-  mounted() {
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type == 'nav/set_fetch' && mutation.payload == false) {
-        this.loader = false;
-      }
-    })
-  },
-  middleware: 'init_menu'
+  }
 }
 </script>
 <style lang="scss">
-  header {
+  footer {
     background-color: #3498db;
     display: flex;
     flex-direction: row;
@@ -103,46 +91,6 @@ export default {
       text-transform: uppercase;
     }
   }
-.loader{
-  z-index: 99999;
-  background-color: white;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
 
-  img{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 
 </style>
-
-<!--<template>
-  <header>
-    <nuxt-link to="/" class="logo">Nuxty</nuxt-link>
-    <nav>
-      <ul>
-        <li><nuxt-link to="home">Home</nuxt-link></li>
-        <li><nuxt-link to="about">About</nuxt-link></li>
-        <li><nuxt-link to="services">Services</nuxt-link></li>
-        <li><nuxt-link to="contact">Contact</nuxt-link></li>
-      </ul>
-      <ul>
-        <li v-for="(item, index) in menu.items" :key="index">{{ item.post_title }}</li>
-      </ul>
-    </nav>
-  </header>
-</template>
--->
