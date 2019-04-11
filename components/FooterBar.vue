@@ -2,7 +2,7 @@
   <footer>
     <nav>
       <ul>
-        <li v-for="items in menus.menu.footer" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
+        <li v-for="items in get_menu.footer" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
           <nuxt-link :to="slugify(items.title)">{{ items.title }}</nuxt-link>
         </li>
       </ul>
@@ -33,14 +33,12 @@ export default {
     set_current_nav : function (value) {
       this.$store.dispatch('nav/setCurrent', value);
     },
-    current_nav(){
-      return this.$store.getters.nav/get_current
-    }
   },
   computed: {
-    menus(){
-      return this.$store.state.nav;
-    },
+    ...mapGetters('nav', [
+      'get_menu',
+      'get_current'
+    ])
   }
 }
 </script>
@@ -85,12 +83,5 @@ export default {
       color: #FFFFFF;
       text-decoration: none;
     }
-    .logo {
-      font-weight: 600;
-      font-size: 30px;
-      text-transform: uppercase;
-    }
   }
-
-
 </style>

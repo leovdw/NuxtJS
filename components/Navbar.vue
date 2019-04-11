@@ -1,12 +1,12 @@
 <template>
   <header>
-      <div v-if="loader" class="loader">
+      <div v-if="get_fetch_status" class="loader">
         <img src="/load_2.gif" alt="">
       </div>
     <nuxt-link to="/" class="logo">Nuxty</nuxt-link>
     <nav>
       <ul>
-        <li v-for="items in menus.menu.header" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
+        <li v-for="items in get_menu.header" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
           <nuxt-link :to="slugify(items.title)">{{ items.title }}</nuxt-link>
         </li>
       </ul>
@@ -42,16 +42,10 @@ export default {
     }
   },
   computed: {
-    menus(){
-      return this.$store.state.nav;
-    },
-  },
-  mounted() {
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type == 'nav/set_fetch' && mutation.payload == false) {
-        this.loader = false;
-      }
-    })
+    ...mapGetters('nav', [
+      'get_menu',
+      'get_fetch_status'
+    ])
   },
   middleware: 'init_menu'
 }

@@ -21,9 +21,16 @@ export const mutations = {
 }
 
 export const getters = {
+  get_menu(state, getters){
+    return state.menu;
+  },
+  get_fetch_status(state, getters){
+    return state.fetching;
+  },
   get_current(state, getters){
     return state.current;
   },
+
 }
 
 export const actions = {
