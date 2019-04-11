@@ -18,11 +18,6 @@
 
 import { mapActions, mapGetters, mapState } from 'vuex'
 export default {
-  data() {
-    return {
-      loader : true,
-    }
-  },
   methods: {
     slugify: function(text) {
       if (text) {
@@ -47,7 +42,7 @@ export default {
       'get_fetch_status'
     ])
   },
-  middleware: 'init_menu'
+  // middleware: 'init_menu'
 }
 </script>
 <style lang="scss">

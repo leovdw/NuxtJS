@@ -30,7 +30,6 @@ export const getters = {
   get_current(state, getters){
     return state.current;
   },
-
 }
 
 export const actions = {
