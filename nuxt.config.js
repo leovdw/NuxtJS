@@ -23,7 +23,7 @@ module.exports = {
   /*
   ** Build configuration
   */
-  mode : 'spa',
+  // mode : 'spa',
   build: {
     extractCSS: true,
     optimization: {
@@ -59,5 +59,5 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
   ],
-  // middleware: 'init_menu',
+  middleware: 'init_menu',
 }

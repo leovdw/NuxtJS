@@ -1,12 +1,12 @@
 <template>
   <header>
-      <div v-if="get_fetch_status" class="loader">
+      <!-- <div v-if="get_fetch_status" class="loader">
         <img src="/load_2.gif" alt="">
-      </div>
-    <nuxt-link to="/" class="logo">Nuxty</nuxt-link>
+      </div> -->
     <nav>
-      <ul>
-        <li v-for="items in get_menu.header" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
+      <!-- {{menu}} -->
+      <ul v-if="menu && menu.items">
+        <li v-for="items in menu.items" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
           <nuxt-link :to="slugify(items.title)">{{ items.title }}</nuxt-link>
         </li>
       </ul>
@@ -33,16 +33,14 @@ export default {
       this.$store.dispatch('nav/setCurrent', value);
     },
     current_nav(){
-      return this.$store.getters.nav/get_current
+      return this.$store.getters['nav/get_current']
     }
   },
   computed: {
-    ...mapGetters('nav', [
-      'get_menu',
-      'get_fetch_status'
-    ])
-  },
-  // middleware: 'init_menu'
+    menu () {
+      return this.$store.getters['nav/getMenuByName']('header');
+    },
+  }
 }
 </script>
 <style lang="scss">
@@ -117,21 +115,3 @@ export default {
 }
 
 </style>
-
-<!--<template>
-  <header>
-    <nuxt-link to="/" class="logo">Nuxty</nuxt-link>
-    <nav>
-      <ul>
-        <li><nuxt-link to="home">Home</nuxt-link></li>
-        <li><nuxt-link to="about">About</nuxt-link></li>
-        <li><nuxt-link to="services">Services</nuxt-link></li>
-        <li><nuxt-link to="contact">Contact</nuxt-link></li>
-      </ul>
-      <ul>
-        <li v-for="(item, index) in menu.items" :key="index">{{ item.post_title }}</li>
-      </ul>
-    </nav>
-  </header>
-</template>
--->

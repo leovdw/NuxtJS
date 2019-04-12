@@ -3,14 +3,17 @@ import wp from '~/lib/wp';
 const api = [ wp ];
 
 export const state = () => ({
-  menu:  {},
+  menu:  [],
   current : '',
   fetching : false,
 })
 
 export const mutations = {
-  set_menu(state, value) {
-    state.menu[ value.name ] = value.item;
+  set_menu(state, value, set) {
+    state.menu.push({
+       name: value.name,
+       items: value.item
+     })
   },
   set_current(state, value) {
     state.current = value;
@@ -21,8 +24,8 @@ export const mutations = {
 }
 
 export const getters = {
-  get_menu(state, getters){
-    return state.menu;
+  getMenuByName: (state) => (name) => {
+    return state.menu.find(menu => menu.name === name)
   },
   get_fetch_status(state, getters){
     return state.fetching;
@@ -35,6 +38,7 @@ export const getters = {
 export const actions = {
   fetchData ({ commit, state }) {
     commit('set_fetch', true);
+    console.log('enter action');
     api[0].menus() // Fetching all Menus
       .then(function(value_menus) {
         if (value_menus.menu.length > 1) { // If there is more then 1 fetch each menu individualy
@@ -45,7 +49,7 @@ export const actions = {
                 // adding the menus's values into the
                 menus.name = element.slug;
                 menus.item = value.menu.items;
-
+                console.log('commiting');
                 commit('set_menu', menus); // Adding the fetched menu to the state
 
                 if (Object.keys(state.menu).length === value_menus.menu.length) {

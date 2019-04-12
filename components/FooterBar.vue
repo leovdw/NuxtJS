@@ -1,24 +1,22 @@
 <template>
-  <footer>
+  <header>
+      <div v-if="get_fetch_status" class="loader">
+        <img src="/load_2.gif" alt="">
+      </div>
     <nav>
-      <ul>
-        <li v-for="items in get_menu.footer" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
+      <ul v-if="menu && menu.items">
+        <li v-for="items in menu.items" v-bind:key="items.ID" @click="set_current_nav(items.ID)">
           <nuxt-link :to="slugify(items.title)">{{ items.title }}</nuxt-link>
         </li>
       </ul>
     </nav>
-  </footer>
+  </header>
 </template>
 
 <script>
 
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
-  data() {
-    return {
-      loader : true,
-    }
-  },
   methods: {
     slugify: function(text) {
       if (text) {
@@ -35,15 +33,17 @@ export default {
     },
   },
   computed: {
+    menu () {
+      return this.$store.getters['nav/getMenuByName']('footer')
+    },
     ...mapGetters('nav', [
-      'get_menu',
-      'get_current'
+      'get_fetch_status'
     ])
-  }
+  },
 }
 </script>
 <style lang="scss">
-  footer {
+  header {
     background-color: #3498db;
     display: flex;
     flex-direction: row;
@@ -83,5 +83,34 @@ export default {
       color: #FFFFFF;
       text-decoration: none;
     }
+    .logo {
+      font-weight: 600;
+      font-size: 30px;
+      text-transform: uppercase;
+    }
   }
+.loader{
+  z-index: 99999;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 </style>
