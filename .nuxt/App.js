@@ -1,9 +1,13 @@
 import Vue from 'vue'
-import NuxtLoading from './components/nuxt-loading.vue'
+import NuxtLoading from '~/components/misc/loading.vue'
 
-import '..\\assets\\css\\main.scss'
+import '../node_modules/vue-material/dist/vue-material.min.css'
 
-import _6f6c098b from '..\\layouts\\default.vue'
+import '../node_modules/vue-material/dist/theme/default-dark.css'
+
+import '../assets/css/main.scss'
+
+import _6f6c098b from '../layouts/default.vue'
 
 const layouts = { "_default": _6f6c098b }
 

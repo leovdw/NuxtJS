@@ -40,12 +40,13 @@ export default {
     menu () {
       return this.$store.getters['nav/getMenuByName']('header');
     },
-  }
+  },
+  //middleware Not exectued
 }
 </script>
 <style lang="scss">
   header {
-    background-color: #3498db;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -61,6 +62,7 @@ export default {
           font-weight: 300;
           margin: 0 10px;
           position: relative;
+          color: white;
           &::after {
             content: "";
             position: absolute;

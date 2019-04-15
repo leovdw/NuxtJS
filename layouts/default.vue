@@ -14,7 +14,14 @@ export default {
     NavBar,
     FooterBar
   },
+  async mounted(){
+   await this.$nextTick();
+   this.$nuxt.$loading.start();
 
+   await this.$store.dispatch('nav/fetchData');
+
+   this.$nuxt.$loading.finish();
+ },
 }
 
 </script>

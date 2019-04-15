@@ -57,7 +57,10 @@ module.exports = {
     }
   },
   modules: [
+    ['nuxt-vue-material', {
+      theme: 'default-dark'
+    }],
     "@nuxtjs/axios",
   ],
-  middleware: 'init_menu',
+  loading: '~/components/misc/loading.vue'
 }
