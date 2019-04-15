@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import NuxtLoading from '~/components/misc/loading.vue'
+import NuxtLoading from './components/nuxt-loading.vue'
 
 import '../node_modules/vue-material/dist/vue-material.min.css'
 

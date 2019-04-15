@@ -62,5 +62,5 @@ module.exports = {
     }],
     "@nuxtjs/axios",
   ],
-  loading: '~/components/misc/loading.vue'
+  // loading: '~/components/misc/loading.vue'
 }
