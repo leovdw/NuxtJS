@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <footer>
       <div v-if="get_fetch_status" class="loader">
         <img src="/load_2.gif" alt="">
       </div>
@@ -10,7 +10,7 @@
         </li>
       </ul>
     </nav>
-  </header>
+  </footer>
 </template>
 
 <script>
@@ -43,8 +43,8 @@ export default {
   },
 }
 </script>
-<style lang="scss">
-  header {
+<style lang="scss" scoped>
+  footer {
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -61,22 +61,9 @@ export default {
           font-weight: 300;
           margin: 0 10px;
           position: relative;
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #FFFFFF;
-            transition: width cubic-bezier(0.155, 0.005, 0.000, 1.000) 1200ms;
-          }
+
         }
-        &:hover {
-          a::after {
-            width: 100%;
-          }
-        }
+
       }
     }
     .logo,

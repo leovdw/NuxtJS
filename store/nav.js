@@ -9,7 +9,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  set_menu(state, value, set) {
+  set_menu(state, value) {
     state.menu.push({
        name: value.name,
        items: value.item

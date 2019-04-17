@@ -5,6 +5,7 @@
       <FooterBar/>
   </div>
 </template>
+
 <script>
 import NavBar from '~/components/Navbar.vue';
 import FooterBar from '~/components/FooterBar.vue';
@@ -16,6 +17,7 @@ export default {
   },
   async mounted(){
    await this.$nextTick();
+
    this.$nuxt.$loading.start();
 
    await this.$store.dispatch('nav/fetchData');

@@ -6,7 +6,7 @@ import PageContent from '~/components/pages/PageContent.vue'
 import wp from '~/lib/wp'
 
 export default {
-  async asyncData ({ params }) {
+  async asyncData ({ params, state }) { 
     return wp.slug( params.slug )
   },
   components: {
