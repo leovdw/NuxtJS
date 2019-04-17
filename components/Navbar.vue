@@ -143,7 +143,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: #EFF5F7;
     display: flex !important;
     justify-content: center;
     flex-direction: column;
@@ -158,7 +158,7 @@ header {
       height: 0%;
       bottom: 0;
       left: 0;
-      background-color: white;
+      background-color: #EFF5F7;
       opacity: 0.6;
       z-index: -1;
       transition: .5s ease all;
@@ -203,7 +203,7 @@ header {
           font-weight: 700;
           padding: 13px 15px;
           position: relative;
-          color: white;
+          color: #4d638F;
           text-transform: uppercase;
           overflow: hidden;
           display: flex;
@@ -217,7 +217,7 @@ header {
 
             rect {
               fill: none;
-              stroke: var(--md-theme-default-primary-on-background, #448aff);
+              stroke: #4d638F;
               stroke-width: 5;
               stroke-dasharray: 0, 500;
               transition: 1000ms all;
@@ -262,7 +262,7 @@ a:not(.md-button):hover{
     &::before,
     &::after,
     span{
-      background-color: var(--md-theme-default-primary-on-background, #448aff);
+      background-color: #4d638F;
       transition: .4s ease all;
     }
   }
@@ -272,7 +272,7 @@ a:not(.md-button):hover{
   width: 100%;
   height: 4px;
   display: block;
-  background: #fff;
+  background: #4d638F;
   border-radius: 2px;
   position: absolute;
   opacity: 1;
@@ -334,7 +334,5 @@ a:not(.md-button):hover{
 .list-enter-active, .list-leave-active {
   transition: all 1s;
 }
-
-
 
 </style>

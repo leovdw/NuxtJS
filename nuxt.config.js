@@ -18,7 +18,7 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   css: [
-    '@/assets/css/main.scss'
+    '@/assets/css/main.scss',
   ],
   /*
   ** Build configuration
@@ -57,10 +57,10 @@ module.exports = {
     }
   },
   modules: [
-    ['nuxt-vue-material', {
-      theme: 'default-dark'
-    }],
     "@nuxtjs/axios",
   ],
+  plugins: [
+    '~/plugins/vuetify'
+  ]
   // loading: '~/components/misc/loading.vue'
 }
