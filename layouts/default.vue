@@ -2,7 +2,7 @@
   <div>
       <NavBar/>
       <nuxt/>
-      <FooterBar/>
+      <!-- <FooterBa r/> -->
   </div>
 </template>
 

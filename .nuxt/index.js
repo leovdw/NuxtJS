@@ -11,8 +11,9 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_06f52369 from 'nuxt_plugin_axios_06f52369' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_vuetify_165b1c58 from 'nuxt_plugin_vuetify_165b1c58' // Source: ../plugins/vuetify (mode: 'all')
+import nuxt_plugin_axios_421fa244 from 'nuxt_plugin_axios_421fa244' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_vuetify_165b1c58 from 'nuxt_plugin_vuetify_165b1c58' // Source: ..\\plugins\\vuetify (mode: 'all')
+import nuxt_plugin_scroll_3c47dc7a from 'nuxt_plugin_scroll_3c47dc7a' // Source: ..\\plugins\\scroll (mode: 'all')
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -152,12 +153,16 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_06f52369 === 'function') {
-    await nuxt_plugin_axios_06f52369(app.context, inject)
+  if (typeof nuxt_plugin_axios_421fa244 === 'function') {
+    await nuxt_plugin_axios_421fa244(app.context, inject)
   }
 
   if (typeof nuxt_plugin_vuetify_165b1c58 === 'function') {
     await nuxt_plugin_vuetify_165b1c58(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_scroll_3c47dc7a === 'function') {
+    await nuxt_plugin_scroll_3c47dc7a(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
