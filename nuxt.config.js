@@ -61,16 +61,12 @@ module.exports = {
       }
     }
   },
-  plugins: [
-    '~/plugins/vuetify',
-    // '~/plugins/velocity',
-    '~/plugins/scroll',
-  ],
   modules: [
     "@nuxtjs/axios",
   ],
   plugins: [
     '~/plugins/vuetify',
+    '~/plugins/scroll',
     {src: '~/plugins/velocity', ssr: false}
   ]
   // loading: '~/components/misc/loading.vue'

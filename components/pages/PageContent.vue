@@ -1,10 +1,5 @@
 <template>
   <div class="home" v-scroll="handleScroll">
-    <transition-group
-    name="list"
-    tag="div"
-    v-on:move="move"
-    >
       <div class="home__sections" key='sec_1'>
         <div class="home__intro" style="background-color : #EFF5F7; background-position:">
           <div class="home__intro--wraper">
@@ -62,20 +57,27 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  data : function () {
+    return {
+      current : 0,
+      section: 0,
+      is_finished: 1,
+    }
+  },
   props: {
     slug: { type: Object }
   },
   methods: {
     handleScroll: function (evt, el) {
       if (this.section == 0) {
-        let sec = document.querySelectorAll('.home__sections');
-        this.section.push({sec});
+        let sec = document.querySelectorAll('.home__sections').length;
+        this.section = sec;
       }
 
-      if (this.is_finished == 1){
+      // if (this.is_finished == 1){
         let scroll = Math.round(event.deltaY);
         if (scroll > 1){
-          if( this.current !== this.section.length ){
+          if( this.current !== this.section.length){
             this.current = this.current + 1;
           }
         }
@@ -84,7 +86,7 @@ export default {
             this.current = this.current - 1;
           }
         }
-      }
+      // }
     },
     move: function (){
       console.log('moved');
@@ -93,19 +95,24 @@ export default {
   watch: {
       current: function(val, oldVal) {
         // v();
-        const sec = document.querySelectorAll('.home__sections');
+        const velocity = this.$velocity;
+        let sec = document.querySelectorAll('.home__sections');
+        let home = document.querySelector('.home');
         this.is_finished = 0;
-        console.log(velocity());
-        sec[val].velocity(
-          "scroll",
-          {
-            duration: 1500,
-            easing: "spring",
-            complete : function () {
-              this.is_finished = 1;
+        console.log(sec[val]);
+          home.velocity({
+              scrollTop: '50%',
+            }, {
+              duration: 1500,
+              easing: "spring",
+              complete : function () {
+                console.log('end');
+                this.is_finished = 1;
+              }
             }
-          }
-        )
+          )
+        
+
       },
   }
 }
@@ -115,13 +122,14 @@ export default {
 <style scoped lang="scss">
 
 .home{
-  height: 100vh;
-  overflow: hidden;
+  height: 500vh;
+  // overflow: hidden;
 
   &__sections{
     height: 100vh;
     width: 100%;
     transition: 1s ease all;
+    position: relative;
 
     // @include breakpoint(small, down){
     //   height: auto;
