@@ -45,7 +45,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   footer {
-    background-color: white;
+    background-color: #EFF5F7;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,7 +68,7 @@ export default {
     }
     .logo,
     nav a {
-      color: #FFFFFF;
+      color: #4d638F;
       text-decoration: none;
     }
     .logo {

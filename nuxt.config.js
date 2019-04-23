@@ -10,7 +10,11 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700' },
+    ],
+    script : [
+      { href: 'https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js' },
+      { href: '/velocity.js' }
     ]
   },
   /*
@@ -57,6 +61,11 @@ module.exports = {
       }
     }
   },
+  plugins: [
+    '~/plugins/vuetify',
+    // '~/plugins/velocity',
+    '~/plugins/scroll',
+  ],
   modules: [
     "@nuxtjs/axios",
   ],

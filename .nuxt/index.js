@@ -11,9 +11,15 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
+<<<<<<< HEAD
 import nuxt_plugin_axios_06f52369 from 'nuxt_plugin_axios_06f52369' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_vuetify_165b1c58 from 'nuxt_plugin_vuetify_165b1c58' // Source: ../plugins/vuetify (mode: 'all')
 import nuxt_plugin_velocity_724d8253 from 'nuxt_plugin_velocity_724d8253' // Source: ../plugins/velocity (mode: 'client')
+=======
+import nuxt_plugin_axios_421fa244 from 'nuxt_plugin_axios_421fa244' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_vuetify_165b1c58 from 'nuxt_plugin_vuetify_165b1c58' // Source: ..\\plugins\\vuetify (mode: 'all')
+import nuxt_plugin_scroll_3c47dc7a from 'nuxt_plugin_scroll_3c47dc7a' // Source: ..\\plugins\\scroll (mode: 'all')
+>>>>>>> c3e0db7007bee6bf6b4078f5bc3977d591cac136
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -153,16 +159,21 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_06f52369 === 'function') {
-    await nuxt_plugin_axios_06f52369(app.context, inject)
+  if (typeof nuxt_plugin_axios_421fa244 === 'function') {
+    await nuxt_plugin_axios_421fa244(app.context, inject)
   }
 
   if (typeof nuxt_plugin_vuetify_165b1c58 === 'function') {
     await nuxt_plugin_vuetify_165b1c58(app.context, inject)
   }
 
+<<<<<<< HEAD
   if (process.client && typeof nuxt_plugin_velocity_724d8253 === 'function') {
     await nuxt_plugin_velocity_724d8253(app.context, inject)
+=======
+  if (typeof nuxt_plugin_scroll_3c47dc7a === 'function') {
+    await nuxt_plugin_scroll_3c47dc7a(app.context, inject)
+>>>>>>> c3e0db7007bee6bf6b4078f5bc3977d591cac136
   }
 
   // If server-side, wait for async component to be resolved first

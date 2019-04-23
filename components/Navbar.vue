@@ -4,7 +4,6 @@
       <span></span>
     </div>
     <transition
-
     name="fade"
     v-on:before-enter="bg_beforeEnter"
     v-on:enter="bg_enter"
@@ -48,7 +47,7 @@ export default {
     return {
       menu_state : false,
     }
-  } ,
+  },
   methods: {
     slugify: function(text) {
       if (text) {
@@ -223,11 +222,20 @@ header {
               transition: 1000ms all;
             }
 
+
             &:hover{
               rect {
                 stroke-dasharray: 422, 0;
                 transition: 1000ms ease all;
               }
+            }
+          }
+
+          &.nuxt-link-active{
+            border-bottom: 3px solid #4d638F;
+
+            svg{
+              height: calc(100% + 3px);
             }
           }
         }
@@ -253,7 +261,7 @@ a:not(.md-button):hover{
   height: 32px;
   margin: auto;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 30px;
   z-index: 2;
