@@ -15,7 +15,7 @@
 
 <script>
 
-import { mapGetters, middlewares } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   methods: {

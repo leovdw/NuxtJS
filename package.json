@@ -17,6 +17,7 @@
     "material-components-web": "^1.1.1",
     "nuxt": "^2.6.2",
     "nuxt-vue-material": "^1.1.0",
+    "velocity-animate": "^2.0.5",
     "vue-accordion": "^1.0.0",
     "vue-material": "^1.0.0-beta-10.2",
     "vuetify": "^1.5.12"

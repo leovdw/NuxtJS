@@ -53,39 +53,36 @@
         </div>
     </div>
     <v-btn color="info">Info</v-btn>
-    
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
-
-// import gf from '~/lib/gf'
-//
-// gf.forms();
 export default {
-  // async asyncData ({ params }) {
-  //   return gf.froms()
-  // },
   props: {
     slug: { type: Object }
   },
   methods : {
 
   },
+  computed : {
+    ...mapGetters('nav', [
+      'get_fetch_status'
+    ]),
+  },
   mounted() {
-    // var ripple = document.querySelectorAll('.mdc-ripple-upgraded');
-    //
-    // if (ripple) {
-    //   for (var i = 0; i < ripple.length; i++) {
-    //     mdc.ripple.MDCRipple.attachTo(ripple[i]);
-    //   }
-    // }
-    //
-    // var tabs_home = document.querySelectorAll('.mdc-tab-bar');
-    // for (var i = 0; i < tabs_home.length; i++) {
-    //   var tabBar = new mdc.tabBar.MDCTabBar(tabs_home[i]);
-    // }
+    const velocity = this.$velocity;
+
+    var ripple = document.querySelectorAll('.home__service__tab--content--text');
+    if (this.get_fetch_status) {
+      for (var i = 0; i < ripple.length; i++) {
+        ripple[i].velocity({
+          properties: { opacity: 0 },
+          options: { duration: 500 }
+        });
+      }
+    }
   }
 }
 

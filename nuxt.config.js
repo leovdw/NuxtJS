@@ -26,6 +26,7 @@ module.exports = {
   // mode : 'spa',
   build: {
     extractCSS: true,
+    // vendor: ['velocity-animate'],
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -60,7 +61,8 @@ module.exports = {
     "@nuxtjs/axios",
   ],
   plugins: [
-    '~/plugins/vuetify'
+    '~/plugins/vuetify',
+    {src: '~/plugins/velocity', ssr: false}
   ]
   // loading: '~/components/misc/loading.vue'
 }
