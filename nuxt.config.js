@@ -11,10 +11,10 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700' },
+      { rel: 'stylesheet', href: '/material.min.css' },
     ],
     script : [
       { href: 'https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js' },
-      { href: '/velocity.js' }
     ]
   },
   /*
@@ -67,7 +67,8 @@ module.exports = {
   plugins: [
     '~/plugins/vuetify',
     '~/plugins/scroll',
-    {src: '~/plugins/velocity', ssr: false}
+    {src: '~/plugins/material', ssr: false}
+    // {src: '~/plugins/velocity', ssr: false}
   ]
   // loading: '~/components/misc/loading.vue'
 }

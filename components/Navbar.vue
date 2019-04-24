@@ -167,7 +167,6 @@ header {
     &.pseudo_el{
       & .bg_opa{
         height: 0%;
-
         transform: translateY(-1%);
         transition: .5s ease all;
       }

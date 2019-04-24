@@ -14,7 +14,7 @@ import { createStore } from './store.js'
 import nuxt_plugin_axios_06f52369 from 'nuxt_plugin_axios_06f52369' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_vuetify_165b1c58 from 'nuxt_plugin_vuetify_165b1c58' // Source: ../plugins/vuetify (mode: 'all')
 import nuxt_plugin_scroll_3c47dc7a from 'nuxt_plugin_scroll_3c47dc7a' // Source: ../plugins/scroll (mode: 'all')
-import nuxt_plugin_velocity_724d8253 from 'nuxt_plugin_velocity_724d8253' // Source: ../plugins/velocity (mode: 'client')
+import nuxt_plugin_material_04eaaa9d from 'nuxt_plugin_material_04eaaa9d' // Source: ../plugins/material (mode: 'client')
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -166,8 +166,8 @@ async function createApp(ssrContext) {
     await nuxt_plugin_scroll_3c47dc7a(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_velocity_724d8253 === 'function') {
-    await nuxt_plugin_velocity_724d8253(app.context, inject)
+  if (process.client && typeof nuxt_plugin_material_04eaaa9d === 'function') {
+    await nuxt_plugin_material_04eaaa9d(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

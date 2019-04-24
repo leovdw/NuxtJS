@@ -1,5 +1,5 @@
-import Velocity from 'velocity-animate'
-
-export default (ctx, inject) => {
-  inject('velocity', Velocity)
-}
+// import Velocity from 'velocity-animate'
+//
+// export default (ctx, inject) => {
+//   inject('velocity', Velocity)
+// }
