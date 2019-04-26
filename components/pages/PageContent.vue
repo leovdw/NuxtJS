@@ -1,7 +1,7 @@
 <template>
-  <div class="home" v-scroll="handleScroll" v-scroll.prevent="handeScroll">
+  <div class="home" v-scroll="handleScroll">
 
-    <div class="home__sections" key='sec_1' v-on:transitionend="set_finish">
+    <div class="home__sections mdc-ripple-surface" key='sec_1' v-on:transitionend="set_finish">
       <div class="home__intro" style="background-color : #EFF5F7; background-position:">
         <div class="home__intro--wraper">
           <h2 class="home__intro--title">
@@ -21,7 +21,7 @@
 
         	<div class="home__mako__box__wraper">
             <div class="home__mako__box">
-              <div class="home__mako__box--img" style="background-color: #EFF5F7">
+              <div class="home__mako__box--img mdc-ripple-upgraded" style="background-color: #EFF5F7">
               </div>
               <div class="home__mako__box--content">
                 <h3>My H3 title</h3>
@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="home__mako__box">
-              <div class="home__mako__box--img" style="background-color : #EFF5F7">
+              <div class="home__mako__box--img mdc-ripple-upgraded" style="background-color : #EFF5F7">
               </div>
               <div class="home__mako__box--content">
                 <h3>My H3 title</h3>
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="home__mako__box">
-              <div class="home__mako__box--img" style="background-color : #EFF5F7">
+              <div class="home__mako__box--img mdc-ripple-surface" style="background-color : #EFF5F7">
               </div>
               <div class="home__mako__box--content">
                 <h3>My H3 title</h3>
@@ -49,6 +49,14 @@
             </div>
           </div>
       </div>
+    </div>
+
+    <div class="home__sections down" key='sec_3' v-on:transitionend="set_finish">
+      <DropDown :content="tab_content"/>
+    </div>
+
+    <div class="home__sections down" key='sec_4' v-on:transitionend="set_finish">
+      <DropDown :content="tab_content2"/>
     </div>
 
     <div class="home__creation even down" v-on:transitionend="set_finish">
@@ -99,7 +107,7 @@
 
     <div class="home__creation even down" v-on:transitionend="set_finish">
       <div class="home__creation__contentwrap">
-        <div class="home__creation--img" style="background-color:rgb(239, 245, 247)">
+        <div class="home__creation--img mdc-ripple-surface--primary	mdc-ripple-surface" style="background-color:rgb(239, 245, 247)">
         </div>
         <div class="home__creation--content">
           <h2>The Creation Title</h2>
@@ -127,7 +135,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-// import { MDCRipple } from '@material/ripple/index';
+import DropDown from '~/components/misc/dropdown.vue';
 
 export default {
   data : function () {
@@ -135,19 +143,91 @@ export default {
       current : 0,
       section: 0,
       is_finished: 1,
+      tab_content: [
+        {
+         tab: 'Title tab n°1',
+         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.1'
+        },{
+          tab: 'Title tab n°2',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.2'
+        },{
+          tab: 'Title tab n°3',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.3'
+        },{
+          tab: 'Title tab n°4',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.4'
+        },{
+          tab: 'Title tab n°5',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.5'
+        },{
+          tab: 'Title tab n°6',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.6'
+        },{
+          tab: 'Title tab n°12',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.4'
+        },{
+          tab: 'Title tab n°13',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.4'
+        },{
+          tab: 'Title tab n°14',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.4'
+        }
+      ],
+      tab_content2: [
+        {
+         tab: 'Title tab n°1',
+         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.1'
+        },{
+          tab: 'Title tab n°2',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.2'
+        },{
+          tab: 'Title tab n°3',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.3'
+        },{
+          tab: 'Title tab n°4',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.4'
+        }
+      ],
     }
+  },
+  components: {
+    DropDown,
   },
   props: {
     slug: { type: Object }
   },
+  mounted(){
+    this.m_init();
+  },
   methods: {
+    m_init: function () {
+      const MDC = this.$MDC;
+
+      const ripples = document.querySelectorAll('.mdc-ripple-surface, .mdc-ripple-upgraded, .mdc-tab__ripple');
+
+      if (ripples.length > 0) {
+        ripples.forEach(function (riple) {
+          MDC.Ripple.attachTo(riple);
+        })
+      }
+
+      let tabs_home = document.querySelectorAll('.mdc-tab-bar');
+      for (var i = 0; i < tabs_home.length; i++) {
+        var tabBar = new MDC.TabBar(tabs_home[i]);
+      }
+
+      let tabs_scroller_home = document.querySelectorAll('.mdc-tab-scroller');
+      console.log(MDC.TabScroller);
+      console.log(tabs_scroller_home);
+      for (var i = 0; i < tabs_scroller_home.length; i++) {
+        var tabScroller = new MDC.TabScroller(tabs_scroller_home[i]);
+      }
+    },
     handleScroll: function (evt, el) {
       if (this.section == 0) {
         let sec = document.querySelectorAll('.home__sections, .home__creation').length;
         this.section = sec;
       }
-
-      // v-scroll.prevent="handeScroll"
 
       let scroll = Math.round(event.deltaY);
       if (scroll > 1){
@@ -178,28 +258,26 @@ export default {
       this.is_finished = 1;
     },
 
-    enter : function () {
-      console.log('entered');
+    set_tab : function () {
+      console.log(this.$refs);
     }
   },
   watch: {
-      current: function(val, oldVal) {
-        // console.log(MDCRipple);
-        let sec = document.querySelectorAll('.home__sections, .home__creation');
+    current: function(val, oldVal) {
+      let sec = document.querySelectorAll('.home__sections, .home__creation');
 
+      if (val - oldVal == 1) {
+        sec[val].classList.remove('down');
+        sec[oldVal].classList.add('up');
+      }else if (val == oldVal - 1) {
+        sec[val].classList.remove('up');
+        sec[oldVal].classList.add('down');
+      }
 
-        if (val - oldVal == 1) {
-          sec[val].classList.remove('down');
-          sec[oldVal].classList.add('up');
-        }else if (val == oldVal - 1) {
-          sec[val].classList.remove('up');
-          sec[oldVal].classList.add('down');
-        }
-
-        if (sec[val].classList.contains('home__creation')) {
-          this.handle_creation(sec[val], sec[oldVal]);
-        }
-      },
+      if (sec[val].classList.contains('home__creation')) {
+        this.handle_creation(sec[val], sec[oldVal]);
+      }
+    },
   }
 }
 
@@ -636,4 +714,6 @@ $main-color : #4d638F;
     }
   }
 }
+
+
 </style>
